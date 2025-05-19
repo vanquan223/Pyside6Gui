@@ -200,7 +200,7 @@ class SetupMainWindow:
         if self.settings["custom_title_bar"]:
             self.ui.title_bar.set_title(self.settings["app_name"])
         else:
-            self.ui.title_bar.set_title("Welcome to PyOneDark")
+            self.ui.title_bar.set_title("RPA iGate")
 
         # LEFT COLUMN SET SIGNALS
         # ///////////////////////////////////////////////////////////////
