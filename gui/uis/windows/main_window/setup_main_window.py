@@ -150,8 +150,6 @@ class SetupMainWindow:
             return self.ui.title_bar.sender()
         elif self.ui.left_menu.sender() != None:
             return self.ui.left_menu.sender()
-        elif self.ui.left_column.sender() != None:
-            return self.ui.left_column.sender()
 
     # SETUP MAIN WINDOW WITH CUSTOM PARAMETERS
     # ///////////////////////////////////////////////////////////////
@@ -202,21 +200,9 @@ class SetupMainWindow:
         else:
             self.ui.title_bar.set_title("RPA iGate")
 
-        # LEFT COLUMN SET SIGNALS
-        # ///////////////////////////////////////////////////////////////
-        self.ui.left_column.clicked.connect(self.btn_clicked)
-        self.ui.left_column.released.connect(self.btn_released)
-
         # SET INITIAL PAGE / SET LEFT AND RIGHT COLUMN MENUS
         # ///////////////////////////////////////////////////////////////
         MainFunctions.set_page(self, self.ui.load_pages.page_1)
-        MainFunctions.set_left_column_menu(
-            self,
-            menu = self.ui.left_column.menus.menu_1,
-            title = "Settings Left Column",
-            icon_path = Functions.set_svg_icon("icon_settings.svg")
-        )
-        MainFunctions.set_right_column_menu(self, self.ui.right_column.menu_1)
 
         # ///////////////////////////////////////////////////////////////
         # EXAMPLE CUSTOM WIDGETS
@@ -230,8 +216,6 @@ class SetupMainWindow:
         # the objects below:
         #
         # <OBJECTS>
-        # LEFT COLUMN: self.ui.left_column.menus
-        # RIGHT COLUMN: self.ui.right_column
         # LOAD PAGES: self.ui.load_pages
         # </OBJECTS>
         # ///////////////////////////////////////////////////////////////
@@ -245,40 +229,6 @@ class SetupMainWindow:
         # ///////////////////////////////////////////////////////////////
         themes = Themes()
         self.themes = themes.items
-
-        # LEFT COLUMN
-        # ///////////////////////////////////////////////////////////////
-
-        # BTN 1
-        self.left_btn_1 = PyPushButton(
-            text="Btn 1",
-            radius=8,
-            color=self.themes["app_color"]["text_foreground"],
-            bg_color=self.themes["app_color"]["dark_one"],
-            bg_color_hover=self.themes["app_color"]["dark_three"],
-            bg_color_pressed=self.themes["app_color"]["dark_four"]
-        )
-        self.left_btn_1.setMaximumHeight(40)
-        self.ui.left_column.menus.btn_1_layout.addWidget(self.left_btn_1)
-
-        # BTN 2
-        self.left_btn_2 = PyPushButton(
-            text="Btn With Icon",
-            radius=8,
-            color=self.themes["app_color"]["text_foreground"],
-            bg_color=self.themes["app_color"]["dark_one"],
-            bg_color_hover=self.themes["app_color"]["dark_three"],
-            bg_color_pressed=self.themes["app_color"]["dark_four"]
-        )
-        self.icon = QIcon(Functions.set_svg_icon("icon_settings.svg"))
-        self.left_btn_2.setIcon(self.icon)
-        self.left_btn_2.setMaximumHeight(40)
-        self.ui.left_column.menus.btn_2_layout.addWidget(self.left_btn_2)
-
-        # BTN 3 - Default QPushButton
-        self.left_btn_3 = QPushButton("Default QPushButton")
-        self.left_btn_3.setMaximumHeight(40)
-        self.ui.left_column.menus.btn_3_layout.addWidget(self.left_btn_3)
 
         # PAGES
         # ///////////////////////////////////////////////////////////////
@@ -542,45 +492,6 @@ class SetupMainWindow:
         self.ui.load_pages.row_3_layout.addWidget(self.toggle_button)
         self.ui.load_pages.row_4_layout.addWidget(self.line_edit)
         self.ui.load_pages.row_5_layout.addWidget(self.table_widget)
-
-        # RIGHT COLUMN
-        # ///////////////////////////////////////////////////////////////
-
-        # BTN 1
-        self.right_btn_1 = PyPushButton(
-            text="Show Menu 2",
-            radius=8,
-            color=self.themes["app_color"]["text_foreground"],
-            bg_color=self.themes["app_color"]["dark_one"],
-            bg_color_hover=self.themes["app_color"]["dark_three"],
-            bg_color_pressed=self.themes["app_color"]["dark_four"]
-        )
-        self.icon_right = QIcon(Functions.set_svg_icon("icon_arrow_right.svg"))
-        self.right_btn_1.setIcon(self.icon_right)
-        self.right_btn_1.setMaximumHeight(40)
-        self.right_btn_1.clicked.connect(lambda: MainFunctions.set_right_column_menu(
-            self,
-            self.ui.right_column.menu_2
-        ))
-        self.ui.right_column.btn_1_layout.addWidget(self.right_btn_1)
-
-        # BTN 2
-        self.right_btn_2 = PyPushButton(
-            text="Show Menu 1",
-            radius=8,
-            color=self.themes["app_color"]["text_foreground"],
-            bg_color=self.themes["app_color"]["dark_one"],
-            bg_color_hover=self.themes["app_color"]["dark_three"],
-            bg_color_pressed=self.themes["app_color"]["dark_four"]
-        )
-        self.icon_left = QIcon(Functions.set_svg_icon("icon_arrow_left.svg"))
-        self.right_btn_2.setIcon(self.icon_left)
-        self.right_btn_2.setMaximumHeight(40)
-        self.right_btn_2.clicked.connect(lambda: MainFunctions.set_right_column_menu(
-            self,
-            self.ui.right_column.menu_1
-        ))
-        self.ui.right_column.btn_2_layout.addWidget(self.right_btn_2)
 
         # ///////////////////////////////////////////////////////////////
         # END - EXAMPLE CUSTOM WIDGETS

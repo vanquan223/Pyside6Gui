@@ -42,10 +42,6 @@ from . setup_main_window import *
 # ///////////////////////////////////////////////////////////////
 from gui.uis.pages.ui_main_pages import Ui_MainPages
 
-# RIGHT COLUMN
-# ///////////////////////////////////////////////////////////////
-from gui.uis.columns.ui_right_column import Ui_RightColumn
-
 # CREDITS
 # ///////////////////////////////////////////////////////////////
 from gui.widgets.py_credits_bar.py_credits import PyCredits
@@ -140,39 +136,6 @@ class UI_MainWindow(object):
         )
         self.left_menu_layout.addWidget(self.left_menu)
 
-        # ADD LEFT COLUMN
-        # Add here the left column with Stacked Widgets
-        # ///////////////////////////////////////////////////////////////
-        self.left_column_frame = QFrame()
-        self.left_column_frame.setMaximumWidth(self.settings["left_column_size"]["minimum"])
-        self.left_column_frame.setMinimumWidth(self.settings["left_column_size"]["minimum"])
-        self.left_column_frame.setStyleSheet(f"background: {self.themes['app_color']['bg_two']}")
-
-        # ADD LAYOUT TO LEFT COLUMN
-        self.left_column_layout = QVBoxLayout(self.left_column_frame)
-        self.left_column_layout.setContentsMargins(0,0,0,0)
-
-        # ADD CUSTOM LEFT MENU WIDGET
-        self.left_column = PyLeftColumn(
-            parent,
-            app_parent = self.central_widget,
-            text_title = "Settings Left Frame",
-            text_title_size = self.settings["font"]["title_size"],
-            text_title_color = self.themes['app_color']['text_foreground'],
-            icon_path = Functions.set_svg_icon("icon_settings.svg"),
-            dark_one = self.themes['app_color']['dark_one'],
-            bg_color = self.themes['app_color']['bg_three'],
-            btn_color = self.themes['app_color']['bg_three'],
-            btn_color_hover = self.themes['app_color']['bg_two'],
-            btn_color_pressed = self.themes['app_color']['bg_one'],
-            icon_color = self.themes['app_color']['icon_color'],
-            icon_color_hover = self.themes['app_color']['icon_hover'],
-            context_color = self.themes['app_color']['context_color'],
-            icon_color_pressed = self.themes['app_color']['icon_pressed'],
-            icon_close_path = Functions.set_svg_icon("icon_close.svg")
-        )
-        self.left_column_layout.addWidget(self.left_column)
-
         # ADD RIGHT WIDGETS
         # Add here the right widgets
         # ///////////////////////////////////////////////////////////////
@@ -232,37 +195,9 @@ class UI_MainWindow(object):
         self.load_pages = Ui_MainPages()
         self.load_pages.setupUi(self.content_area_left_frame)
 
-        # RIGHT BAR
-        self.right_column_frame = QFrame()
-        self.right_column_frame.setMinimumWidth(self.settings["right_column_size"]["minimum"])
-        self.right_column_frame.setMaximumWidth(self.settings["right_column_size"]["minimum"])
-
-        # IMPORT RIGHT COLUMN
-        # ///////////////////////////////////////////////////////////////
-        self.content_area_right_layout = QVBoxLayout(self.right_column_frame)
-        self.content_area_right_layout.setContentsMargins(5,5,5,5)
-        self.content_area_right_layout.setSpacing(0)
-
-        # RIGHT BG
-        self.content_area_right_bg_frame = QFrame()
-        self.content_area_right_bg_frame.setObjectName("content_area_right_bg_frame")
-        self.content_area_right_bg_frame.setStyleSheet(f'''
-        #content_area_right_bg_frame {{
-            border-radius: 8px;
-            background-color: {self.themes["app_color"]["bg_two"]};
-        }}
-        ''')
-
-        # ADD BG
-        self.content_area_right_layout.addWidget(self.content_area_right_bg_frame)
-
-        # ADD RIGHT PAGES TO RIGHT COLUMN
-        self.right_column = Ui_RightColumn()
-        self.right_column.setupUi(self.content_area_right_bg_frame)
 
         # ADD TO LAYOUTS
         self.content_area_layout.addWidget(self.content_area_left_frame)
-        self.content_area_layout.addWidget(self.right_column_frame)
 
         # CREDITS / BOTTOM APP FRAME
         # ///////////////////////////////////////////////////////////////
@@ -297,7 +232,6 @@ class UI_MainWindow(object):
         # Add here your custom widgets or default widgets
         # ///////////////////////////////////////////////////////////////
         self.window.layout.addWidget(self.left_menu_frame)
-        self.window.layout.addWidget(self.left_column_frame)
         self.window.layout.addWidget(self.right_app_frame)
 
         # ADD CENTRAL WIDGET AND SET CONTENT MARGINS
