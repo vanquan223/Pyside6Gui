@@ -1,5 +1,105 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-.vscode/
-.git/
-.pyc
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
 venv/
+
+# Logs
+logs/
+*.log
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+.pytest_cache/
+
+# Virtual environments
+.env
+
+# IDE config
+.vscode
+.idea/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Selenium WebDriver (nếu tải về thủ công)
+chromedriver.exe
+chromedriver
+
+# Secrets or config files
+config.json
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Compiled Qt files (nếu dùng PyQt Designer)
+*.pyc
+*.pyo
+*.qrc
+*.ui.py
+
+# exclude python packaging files
+/dist
+/MANIFEST
+
+# exclude pycache directory
+/__pycache__
+
+# exclude entry flow and logs
+/rpa_python
+/rpa_python.log
+/rpa_python.raw
+/rpa_python.js
+
+# exclude entry flow output file
+/rpa_python.txt
+
+# exclude custom js functions 
+/tagui_local.js
+
+core/tagui/src/tagui.sikuli/tagui_sikuli.in
+core/tagui/src/tagui.sikuli/tagui_sikuli.out
+core/tagui/src/tagui_chrome.in
+core/tagui/src/tagui_chrome.out
+core/tagui/src/chrome/tagui_user_profile
+
+# Bỏ qua thư mục ShaderCache
+core/tagui/src/chrome/tagui_user_profile/ShaderCache/
+# Bỏ qua thư mục Default
+core/tagui/src/chrome/tagui_user_profile/Default/
+# Bỏ qua segmentation platform dữ liệu
+core/tagui/src/chrome/tagui_user_profile/segmentation_platform/
+# Bỏ qua tất cả file *.store (các file hệ thống trình duyệt lưu tạm)
+*.store
+# Bỏ qua file dữ liệu tạm
+*.db
+*.data*
+
+.history/
+
+# Ignore package.json and related configuration files
+core/taguij/src/caspets/package.json
+core/taguij/src/chrome/taguij_user.profile/component.crx_cache/metadata.json
+
+# Ignore Chrome profile default data
+core/taguij/src/chrome/taguij_user.profile/Default/
+core/taguij/src/chrome/taguij_user.profile/Default/Local Storage/LEVELDB/LOG.old
+core/taguij/src/chrome/taguij_user.profile/Default/Service Worker/Database/LOG
+core/taguij/src/chrome/taguij_user.profile/Default/Service Worker/Database/LOG.old
+core/taguij/src/chrome/taguij_user.profile/Default/Session Storage/LOG.old
+core/taguij/src/chrome/taguij_user.profile/Default/Site Characteristics Database/LOG.old
+
+# Ignore all LOG.old files recursively
+**/*.LOG.old
