@@ -202,7 +202,7 @@ class SetupMainWindow:
 
         # SET INITIAL PAGE / SET LEFT AND RIGHT COLUMN MENUS
         # ///////////////////////////////////////////////////////////////
-        MainFunctions.set_page(self, self.ui.load_pages.page_1)
+        MainFunctions.set_page(self, self.ui.load_pages.page_login)
 
         # ///////////////////////////////////////////////////////////////
         # EXAMPLE CUSTOM WIDGETS

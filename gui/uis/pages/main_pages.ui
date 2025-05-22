@@ -32,13 +32,13 @@
    <item>
     <widget class="QStackedWidget" name="pages">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
-     <widget class="QWidget" name="page_1">
+     <widget class="QWidget" name="page_login">
       <property name="styleSheet">
        <string notr="true">font-size: 14pt</string>
       </property>
-      <layout class="QVBoxLayout" name="page_1_layout">
+      <layout class="QVBoxLayout" name="page_login_layout">
        <property name="spacing">
         <number>5</number>
        </property>
@@ -337,8 +337,8 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_2">
-      <layout class="QVBoxLayout" name="page_2_layout">
+     <widget class="QWidget" name="page_1">
+      <layout class="QVBoxLayout" name="page_1_layout">
        <property name="spacing">
         <number>5</number>
        </property>
@@ -376,8 +376,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>215</width>
-            <height>266</height>
+            <width>840</width>
+            <height>580</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -458,6 +458,30 @@ I will try to always record a new tutorial when adding a new Widget and updating
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="page_2">
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+	font-size: 16pt;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="page_2_layout">
+       <item>
+        <widget class="QLabel" name="empty_page_label">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Empty Page</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
      <widget class="QWidget" name="page_3">
       <property name="styleSheet">
        <string notr="true">QFrame {
@@ -473,7 +497,7 @@ I will try to always record a new tutorial when adding a new Widget and updating
           </font>
          </property>
          <property name="text">
-          <string>Empty Page</string>
+          <string>Empty Page 3</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>

@@ -30,14 +30,14 @@ class Ui_MainPages(object):
         self.main_pages_layout.setContentsMargins(5, 5, 5, 5)
         self.pages = QStackedWidget(MainPages)
         self.pages.setObjectName(u"pages")
-        self.page_1 = QWidget()
-        self.page_1.setObjectName(u"page_1")
-        self.page_1.setStyleSheet(u"font-size: 14pt")
-        self.page_1_layout = QVBoxLayout(self.page_1)
-        self.page_1_layout.setSpacing(5)
-        self.page_1_layout.setObjectName(u"page_1_layout")
-        self.page_1_layout.setContentsMargins(5, 5, 5, 5)
-        self.login_base = QFrame(self.page_1)
+        self.page_login = QWidget()
+        self.page_login.setObjectName(u"page_login")
+        self.page_login.setStyleSheet(u"font-size: 14pt")
+        self.page_login_layout = QVBoxLayout(self.page_login)
+        self.page_login_layout.setSpacing(5)
+        self.page_login_layout.setObjectName(u"page_login_layout")
+        self.page_login_layout.setContentsMargins(5, 5, 5, 5)
+        self.login_base = QFrame(self.page_login)
         self.login_base.setObjectName(u"login_base")
         self.login_base.setMinimumSize(QSize(500, 380))
         self.login_base.setMaximumSize(QSize(500, 380))
@@ -137,16 +137,16 @@ class Ui_MainPages(object):
         self.center_page_layout.addWidget(self.frame, 0, Qt.AlignmentFlag.AlignHCenter)
 
 
-        self.page_1_layout.addWidget(self.login_base, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.page_login_layout.addWidget(self.login_base, 0, Qt.AlignmentFlag.AlignHCenter)
 
-        self.pages.addWidget(self.page_1)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.page_2_layout = QVBoxLayout(self.page_2)
-        self.page_2_layout.setSpacing(5)
-        self.page_2_layout.setObjectName(u"page_2_layout")
-        self.page_2_layout.setContentsMargins(5, 5, 5, 5)
-        self.scroll_area = QScrollArea(self.page_2)
+        self.pages.addWidget(self.page_login)
+        self.page_1 = QWidget()
+        self.page_1.setObjectName(u"page_1")
+        self.page_1_layout = QVBoxLayout(self.page_1)
+        self.page_1_layout.setSpacing(5)
+        self.page_1_layout.setObjectName(u"page_1_layout")
+        self.page_1_layout.setContentsMargins(5, 5, 5, 5)
+        self.scroll_area = QScrollArea(self.page_1)
         self.scroll_area.setObjectName(u"scroll_area")
         self.scroll_area.setStyleSheet(u"background: transparent;")
         self.scroll_area.setFrameShape(QFrame.Shape.NoFrame)
@@ -155,7 +155,7 @@ class Ui_MainPages(object):
         self.scroll_area.setWidgetResizable(True)
         self.contents = QWidget()
         self.contents.setObjectName(u"contents")
-        self.contents.setGeometry(QRect(0, 0, 215, 266))
+        self.contents.setGeometry(QRect(0, 0, 840, 580))
         self.contents.setStyleSheet(u"background: transparent;")
         self.verticalLayout = QVBoxLayout(self.contents)
         self.verticalLayout.setSpacing(15)
@@ -206,7 +206,22 @@ class Ui_MainPages(object):
 
         self.scroll_area.setWidget(self.contents)
 
-        self.page_2_layout.addWidget(self.scroll_area)
+        self.page_1_layout.addWidget(self.scroll_area)
+
+        self.pages.addWidget(self.page_1)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.page_2.setStyleSheet(u"QFrame {\n"
+"	font-size: 16pt;\n"
+"}")
+        self.page_2_layout = QVBoxLayout(self.page_2)
+        self.page_2_layout.setObjectName(u"page_2_layout")
+        self.empty_page_label = QLabel(self.page_2)
+        self.empty_page_label.setObjectName(u"empty_page_label")
+        self.empty_page_label.setFont(font)
+        self.empty_page_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.page_2_layout.addWidget(self.empty_page_label)
 
         self.pages.addWidget(self.page_2)
         self.page_3 = QWidget()
@@ -216,12 +231,12 @@ class Ui_MainPages(object):
 "}")
         self.page_3_layout = QVBoxLayout(self.page_3)
         self.page_3_layout.setObjectName(u"page_3_layout")
-        self.empty_page_label = QLabel(self.page_3)
-        self.empty_page_label.setObjectName(u"empty_page_label")
-        self.empty_page_label.setFont(font)
-        self.empty_page_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.empty_page_label1 = QLabel(self.page_3)
+        self.empty_page_label1.setObjectName(u"empty_page_label1")
+        self.empty_page_label1.setFont(font)
+        self.empty_page_label1.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.page_3_layout.addWidget(self.empty_page_label)
+        self.page_3_layout.addWidget(self.empty_page_label1)
 
         self.pages.addWidget(self.page_3)
 
@@ -230,7 +245,7 @@ class Ui_MainPages(object):
 
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainPages)
@@ -250,4 +265,5 @@ class Ui_MainPages(object):
         self.description_label.setText(QCoreApplication.translate("MainPages", u"Here will be all the custom widgets, they will be added over time on this page.\n"
 "I will try to always record a new tutorial when adding a new Widget and updating the project on Patreon before launching on GitHub and GitHub after the public release.", None))
         self.empty_page_label.setText(QCoreApplication.translate("MainPages", u"Empty Page", None))
+        self.empty_page_label1.setText(QCoreApplication.translate("MainPages", u"Empty Page 3", None))
     # retranslateUi
