@@ -179,11 +179,11 @@ class SetupMainWindow:
         # LEFT MENUS / GET SIGNALS WHEN LEFT MENU BTN IS CLICKED / RELEASED
         # ///////////////////////////////////////////////////////////////
         # ADD MENUS
-        self.ui.left_menu.add_menus(SetupMainWindow.add_left_menus)
+        # self.ui.left_menu.add_menus(SetupMainWindow.add_left_menus)
 
-        # SET SIGNALS
-        self.ui.left_menu.clicked.connect(self.btn_clicked)
-        self.ui.left_menu.released.connect(self.btn_released)
+        # # SET SIGNALS
+        # self.ui.left_menu.clicked.connect(self.btn_clicked)
+        # self.ui.left_menu.released.connect(self.btn_released)
 
         # TITLE BAR / ADD EXTRA BUTTONS
         # ///////////////////////////////////////////////////////////////
@@ -234,8 +234,8 @@ class SetupMainWindow:
         # ///////////////////////////////////////////////////////////////
 
         # PAGE 1 - ADD LOGO TO MAIN PAGE
-        self.logo_svg = QSvgWidget(Functions.set_svg_image("logo_home.svg"))
-        self.ui.load_pages.logo_layout.addWidget(self.logo_svg, Qt.AlignCenter, Qt.AlignCenter)
+        # self.logo_svg = QSvgWidget(Functions.set_svg_image("logo_home.svg"))
+        # self.ui.load_pages.logo_layout.addWidget(self.logo_svg, Qt.AlignCenter, Qt.AlignCenter)
 
         # PAGE 2
         # CIRCULAR PROGRESS 1

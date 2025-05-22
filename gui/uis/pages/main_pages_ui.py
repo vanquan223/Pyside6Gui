@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QScrollArea, QSizePolicy, QStackedWidget, QVBoxLayout,
-    QWidget)
+    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
+    QStackedWidget, QVBoxLayout, QWidget)
 
 class Ui_MainPages(object):
     def setupUi(self, MainPages):
@@ -37,37 +37,107 @@ class Ui_MainPages(object):
         self.page_1_layout.setSpacing(5)
         self.page_1_layout.setObjectName(u"page_1_layout")
         self.page_1_layout.setContentsMargins(5, 5, 5, 5)
-        self.welcome_base = QFrame(self.page_1)
-        self.welcome_base.setObjectName(u"welcome_base")
-        self.welcome_base.setMinimumSize(QSize(300, 150))
-        self.welcome_base.setMaximumSize(QSize(300, 150))
-        self.welcome_base.setFrameShape(QFrame.NoFrame)
-        self.welcome_base.setFrameShadow(QFrame.Raised)
-        self.center_page_layout = QVBoxLayout(self.welcome_base)
-        self.center_page_layout.setSpacing(10)
+        self.login_base = QFrame(self.page_1)
+        self.login_base.setObjectName(u"login_base")
+        self.login_base.setMinimumSize(QSize(500, 380))
+        self.login_base.setMaximumSize(QSize(500, 380))
+        self.login_base.setStyleSheet(u"background: #fff; border-radius: 24px;")
+        self.login_base.setFrameShape(QFrame.Shape.NoFrame)
+        self.login_base.setFrameShadow(QFrame.Shadow.Raised)
+        self.center_page_layout = QVBoxLayout(self.login_base)
+        self.center_page_layout.setSpacing(0)
         self.center_page_layout.setObjectName(u"center_page_layout")
-        self.center_page_layout.setContentsMargins(0, 0, 0, 0)
-        self.logo = QFrame(self.welcome_base)
-        self.logo.setObjectName(u"logo")
-        self.logo.setMinimumSize(QSize(300, 120))
-        self.logo.setMaximumSize(QSize(300, 120))
-        self.logo.setFrameShape(QFrame.NoFrame)
-        self.logo.setFrameShadow(QFrame.Raised)
-        self.logo_layout = QVBoxLayout(self.logo)
-        self.logo_layout.setSpacing(0)
-        self.logo_layout.setObjectName(u"logo_layout")
-        self.logo_layout.setContentsMargins(0, 0, 0, 0)
+        self.center_page_layout.setContentsMargins(0, 15, 0, 15)
+        self.labelTitle = QLabel(self.login_base)
+        self.labelTitle.setObjectName(u"labelTitle")
+        self.labelTitle.setMinimumSize(QSize(400, 40))
+        self.labelTitle.setMaximumSize(QSize(400, 40))
+        self.labelTitle.setStyleSheet(u"font-size: 28px; color: #2583f5; font-weight: 500;")
+        self.labelTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.center_page_layout.addWidget(self.logo)
+        self.center_page_layout.addWidget(self.labelTitle, 0, Qt.AlignmentFlag.AlignHCenter)
 
-        self.label = QLabel(self.welcome_base)
-        self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignCenter)
+        self.labelDesc = QLabel(self.login_base)
+        self.labelDesc.setObjectName(u"labelDesc")
+        self.labelDesc.setMinimumSize(QSize(400, 30))
+        self.labelDesc.setMaximumSize(QSize(400, 30))
+        self.labelDesc.setStyleSheet(u"font-size: 16px; color: #222;")
+        self.labelDesc.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.center_page_layout.addWidget(self.label)
+        self.center_page_layout.addWidget(self.labelDesc, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.editUsername = QLineEdit(self.login_base)
+        self.editUsername.setObjectName(u"editUsername")
+        self.editUsername.setMinimumSize(QSize(400, 40))
+        self.editUsername.setMaximumSize(QSize(400, 40))
+        self.editUsername.setStyleSheet(u"font-size: 16px; border: 1px solid #e0e0e0; border-radius: 8px; padding-left: 12px; background: #fafbfc;")
+
+        self.center_page_layout.addWidget(self.editUsername, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.editPassword = QLineEdit(self.login_base)
+        self.editPassword.setObjectName(u"editPassword")
+        self.editPassword.setMinimumSize(QSize(400, 40))
+        self.editPassword.setMaximumSize(QSize(400, 40))
+        self.editPassword.setStyleSheet(u"font-size: 16px; border: 1px solid #e0e0e0; border-radius: 8px; padding-left: 12px; background: #fafbfc;")
+        self.editPassword.setEchoMode(QLineEdit.EchoMode.Password)
+
+        self.center_page_layout.addWidget(self.editPassword, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.btnLogin = QPushButton(self.login_base)
+        self.btnLogin.setObjectName(u"btnLogin")
+        self.btnLogin.setEnabled(True)
+        self.btnLogin.setMinimumSize(QSize(400, 40))
+        self.btnLogin.setMaximumSize(QSize(400, 40))
+        self.btnLogin.setStyleSheet(u"font-size: 18px; background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #bdbdbd, stop:1 #e0e0e0); color: #fff; border-radius: 8px;")
+
+        self.center_page_layout.addWidget(self.btnLogin, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.btnSSO = QPushButton(self.login_base)
+        self.btnSSO.setObjectName(u"btnSSO")
+        self.btnSSO.setMinimumSize(QSize(400, 40))
+        self.btnSSO.setMaximumSize(QSize(400, 40))
+        self.btnSSO.setStyleSheet(u"font-size: 18px; background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2583f5, stop:1 #1a6be0); color: #fff; border-radius: 8px;")
+
+        self.center_page_layout.addWidget(self.btnSSO, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.frame = QFrame(self.login_base)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(400, 30))
+        self.frame.setMaximumSize(QSize(400, 30))
+        self.frame.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.labelForgot = QLabel(self.frame)
+        self.labelForgot.setObjectName(u"labelForgot")
+        self.labelForgot.setMinimumSize(QSize(0, 30))
+        self.labelForgot.setMaximumSize(QSize(16777215, 30))
+        self.labelForgot.setStyleSheet(u"font-size: 13px; color: #444;")
+        self.labelForgot.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.horizontalLayout.addWidget(self.labelForgot)
+
+        self.labelReset = QLabel(self.frame)
+        self.labelReset.setObjectName(u"labelReset")
+        self.labelReset.setMinimumSize(QSize(0, 30))
+        self.labelReset.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.labelReset.setAutoFillBackground(False)
+        self.labelReset.setStyleSheet(u"font-size: 13px; color: #2583f5;")
+        self.labelReset.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+        self.labelReset.setOpenExternalLinks(False)
+
+        self.horizontalLayout.addWidget(self.labelReset)
+
+        self.horizontalLayout.setStretch(0, 3)
+        self.horizontalLayout.setStretch(1, 1)
+
+        self.center_page_layout.addWidget(self.frame, 0, Qt.AlignmentFlag.AlignHCenter)
 
 
-        self.page_1_layout.addWidget(self.welcome_base, 0, Qt.AlignHCenter)
+        self.page_1_layout.addWidget(self.login_base, 0, Qt.AlignmentFlag.AlignHCenter)
 
         self.pages.addWidget(self.page_1)
         self.page_2 = QWidget()
@@ -79,13 +149,13 @@ class Ui_MainPages(object):
         self.scroll_area = QScrollArea(self.page_2)
         self.scroll_area.setObjectName(u"scroll_area")
         self.scroll_area.setStyleSheet(u"background: transparent;")
-        self.scroll_area.setFrameShape(QFrame.NoFrame)
-        self.scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scroll_area.setFrameShape(QFrame.Shape.NoFrame)
+        self.scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.scroll_area.setWidgetResizable(True)
         self.contents = QWidget()
         self.contents.setObjectName(u"contents")
-        self.contents.setGeometry(QRect(0, 0, 840, 580))
+        self.contents.setGeometry(QRect(0, 0, 215, 266))
         self.contents.setStyleSheet(u"background: transparent;")
         self.verticalLayout = QVBoxLayout(self.contents)
         self.verticalLayout.setSpacing(15)
@@ -98,13 +168,13 @@ class Ui_MainPages(object):
         font.setPointSize(16)
         self.title_label.setFont(font)
         self.title_label.setStyleSheet(u"font-size: 16pt")
-        self.title_label.setAlignment(Qt.AlignCenter)
+        self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout.addWidget(self.title_label)
 
         self.description_label = QLabel(self.contents)
         self.description_label.setObjectName(u"description_label")
-        self.description_label.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
+        self.description_label.setAlignment(Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
         self.description_label.setWordWrap(True)
 
         self.verticalLayout.addWidget(self.description_label)
@@ -149,7 +219,7 @@ class Ui_MainPages(object):
         self.empty_page_label = QLabel(self.page_3)
         self.empty_page_label.setObjectName(u"empty_page_label")
         self.empty_page_label.setFont(font)
-        self.empty_page_label.setAlignment(Qt.AlignCenter)
+        self.empty_page_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.page_3_layout.addWidget(self.empty_page_label)
 
@@ -160,7 +230,7 @@ class Ui_MainPages(object):
 
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(1)
+        self.pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainPages)
@@ -168,7 +238,14 @@ class Ui_MainPages(object):
 
     def retranslateUi(self, MainPages):
         MainPages.setWindowTitle(QCoreApplication.translate("MainPages", u"Form", None))
-        self.label.setText(QCoreApplication.translate("MainPages", u"RPA iGate", None))
+        self.labelTitle.setText(QCoreApplication.translate("MainPages", u"RPA iGate", None))
+        self.labelDesc.setText(QCoreApplication.translate("MainPages", u"H\u1ec7 th\u1ed1ng t\u1ef1 \u0111\u1ed9ng ho\u00e1 thao t\u00e1c \u1ee9ng d\u1ee5ng", None))
+        self.editUsername.setPlaceholderText(QCoreApplication.translate("MainPages", u"T\u00ean \u0111\u0103ng nh\u1eadp (*)", None))
+        self.editPassword.setPlaceholderText(QCoreApplication.translate("MainPages", u"M\u1eadt kh\u1ea9u (*)", None))
+        self.btnLogin.setText(QCoreApplication.translate("MainPages", u"\u0110\u0103ng nh\u1eadp", None))
+        self.btnSSO.setText(QCoreApplication.translate("MainPages", u"\u0110\u0103ng nh\u1eadp SSO", None))
+        self.labelForgot.setText(QCoreApplication.translate("MainPages", u"B\u1ea1n kh\u00f4ng nh\u1edb m\u1eadt kh\u1ea9u?", None))
+        self.labelReset.setText(QCoreApplication.translate("MainPages", u"<a href='#' style='color:#2583f5'>Qu\u00ean m\u1eadt kh\u1ea9u</a>", None))
         self.title_label.setText(QCoreApplication.translate("MainPages", u"Custom Widgets Page", None))
         self.description_label.setText(QCoreApplication.translate("MainPages", u"Here will be all the custom widgets, they will be added over time on this page.\n"
 "I will try to always record a new tutorial when adding a new Widget and updating the project on Patreon before launching on GitHub and GitHub after the public release.", None))

@@ -231,7 +231,7 @@ class UI_MainWindow(object):
         # ADD WIDGETS TO "PyWindow"
         # Add here your custom widgets or default widgets
         # ///////////////////////////////////////////////////////////////
-        self.window.layout.addWidget(self.left_menu_frame)
+        # self.window.layout.addWidget(self.left_menu_frame)
         self.window.layout.addWidget(self.right_app_frame)
 
         # ADD CENTRAL WIDGET AND SET CONTENT MARGINS

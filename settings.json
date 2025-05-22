@@ -1,7 +1,7 @@
 {
     "app_name": "RPAiGate",
-    "version" : "v1.0.0",
-    "copyright" : "By: Wanderson M. Pimenta",
+    "version" : "Phiên bản: 1.0.0",
+    "copyright" : "Bản quyền: © 2025 Tập Đoàn Bưu Chính Viễn Thông Việt Nam",
     "year" : 2021,
     "theme_name" : "light",
     "custom_title_bar": true,
@@ -10,8 +10,8 @@
         600
     ],
     "minimum_size": [
-        960,
-        540
+        1024,
+        600
     ],
     "lef_menu_size" : {
         "minimum" : 50,
