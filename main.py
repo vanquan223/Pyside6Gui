@@ -130,6 +130,20 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
+        
+    
+    def handle_login(self):
+        username = self.ui.load_pages.editUsername.text()
+        password = self.ui.load_pages.editPassword.text()
+        # Kiểm tra tài khoản (ví dụ: admin/admin)
+        if username == "admin" and password == "admin":
+            # Chuyển sang page_1
+            MainFunctions.set_page(self, self.ui.load_pages.page_1)
+            # Hiện left menu
+            self.ui.left_menu.setVisible(True)
+            self.ui.left_menu_frame.setVisible(True)
+        else:
+            QMessageBox.warning(self, "Lỗi", "Sai tên đăng nhập hoặc mật khẩu!")
 
 
 # SETTINGS WHEN TO START

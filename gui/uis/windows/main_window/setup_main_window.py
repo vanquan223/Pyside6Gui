@@ -179,11 +179,11 @@ class SetupMainWindow:
         # LEFT MENUS / GET SIGNALS WHEN LEFT MENU BTN IS CLICKED / RELEASED
         # ///////////////////////////////////////////////////////////////
         # ADD MENUS
-        # self.ui.left_menu.add_menus(SetupMainWindow.add_left_menus)
+        self.ui.left_menu.add_menus(SetupMainWindow.add_left_menus)
 
         # # SET SIGNALS
-        # self.ui.left_menu.clicked.connect(self.btn_clicked)
-        # self.ui.left_menu.released.connect(self.btn_released)
+        self.ui.left_menu.clicked.connect(self.btn_clicked)
+        self.ui.left_menu.released.connect(self.btn_released)
 
         # TITLE BAR / ADD EXTRA BUTTONS
         # ///////////////////////////////////////////////////////////////
@@ -203,6 +203,10 @@ class SetupMainWindow:
         # SET INITIAL PAGE / SET LEFT AND RIGHT COLUMN MENUS
         # ///////////////////////////////////////////////////////////////
         MainFunctions.set_page(self, self.ui.load_pages.page_login)
+        self.ui.load_pages.btnLogin.clicked.connect(self.handle_login)
+        
+        self.ui.left_menu.setVisible(False)
+        self.ui.left_menu_frame.setVisible(False)
 
         # ///////////////////////////////////////////////////////////////
         # EXAMPLE CUSTOM WIDGETS
