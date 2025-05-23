@@ -133,8 +133,8 @@ class MainWindow(QMainWindow):
         
     
     def handle_login(self):
-        username = self.ui.load_pages.editUsername.text()
-        password = self.ui.load_pages.editPassword.text()
+        username = self.ui.load_pages.login_ui.editUsername.text()
+        password = self.ui.load_pages.login_ui.editPassword.text()
         # Kiểm tra tài khoản (ví dụ: admin/admin)
         if username == "admin" and password == "admin":
             # Chuyển sang page_1

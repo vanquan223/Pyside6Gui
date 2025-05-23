@@ -203,7 +203,7 @@ class SetupMainWindow:
         # SET INITIAL PAGE / SET LEFT AND RIGHT COLUMN MENUS
         # ///////////////////////////////////////////////////////////////
         MainFunctions.set_page(self, self.ui.load_pages.page_login)
-        self.ui.load_pages.btnLogin.clicked.connect(self.handle_login)
+        self.ui.load_pages.login_ui.btnLogin.clicked.connect(self.handle_login)
         
         self.ui.left_menu.setVisible(False)
         self.ui.left_menu_frame.setVisible(False)
@@ -481,21 +481,21 @@ class SetupMainWindow:
             self.table_widget.setRowHeight(row_number, 22)
 
         # ADD WIDGETS
-        self.ui.load_pages.row_1_layout.addWidget(self.circular_progress_1)
-        self.ui.load_pages.row_1_layout.addWidget(self.circular_progress_2)
-        self.ui.load_pages.row_1_layout.addWidget(self.circular_progress_3)
-        self.ui.load_pages.row_2_layout.addWidget(self.vertical_slider_1)
-        self.ui.load_pages.row_2_layout.addWidget(self.vertical_slider_2)
-        self.ui.load_pages.row_2_layout.addWidget(self.vertical_slider_3)
-        self.ui.load_pages.row_2_layout.addWidget(self.vertical_slider_4)
-        self.ui.load_pages.row_3_layout.addWidget(self.icon_button_1)
-        self.ui.load_pages.row_3_layout.addWidget(self.icon_button_2)
-        self.ui.load_pages.row_3_layout.addWidget(self.icon_button_3)
-        self.ui.load_pages.row_3_layout.addWidget(self.push_button_1)
-        self.ui.load_pages.row_3_layout.addWidget(self.push_button_2)
-        self.ui.load_pages.row_3_layout.addWidget(self.toggle_button)
-        self.ui.load_pages.row_4_layout.addWidget(self.line_edit)
-        self.ui.load_pages.row_5_layout.addWidget(self.table_widget)
+        self.ui.load_pages.page1_ui.row_1_layout.addWidget(self.circular_progress_1)
+        self.ui.load_pages.page1_ui.row_1_layout.addWidget(self.circular_progress_2)
+        self.ui.load_pages.page1_ui.row_1_layout.addWidget(self.circular_progress_3)
+        self.ui.load_pages.page1_ui.row_2_layout.addWidget(self.vertical_slider_1)
+        self.ui.load_pages.page1_ui.row_2_layout.addWidget(self.vertical_slider_2)
+        self.ui.load_pages.page1_ui.row_2_layout.addWidget(self.vertical_slider_3)
+        self.ui.load_pages.page1_ui.row_2_layout.addWidget(self.vertical_slider_4)
+        self.ui.load_pages.page1_ui.row_3_layout.addWidget(self.icon_button_1)
+        self.ui.load_pages.page1_ui.row_3_layout.addWidget(self.icon_button_2)
+        self.ui.load_pages.page1_ui.row_3_layout.addWidget(self.icon_button_3)
+        self.ui.load_pages.page1_ui.row_3_layout.addWidget(self.push_button_1)
+        self.ui.load_pages.page1_ui.row_3_layout.addWidget(self.push_button_2)
+        self.ui.load_pages.page1_ui.row_3_layout.addWidget(self.toggle_button)
+        self.ui.load_pages.page1_ui.row_4_layout.addWidget(self.line_edit)
+        self.ui.load_pages.page1_ui.row_5_layout.addWidget(self.table_widget)
 
         # ///////////////////////////////////////////////////////////////
         # END - EXAMPLE CUSTOM WIDGETS
