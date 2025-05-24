@@ -84,8 +84,9 @@ class MainWindow(QMainWindow):
             # Select Menu
             self.ui.left_menu.select_only_one(btn.objectName())
 
-            # Load Page 1
-            MainFunctions.set_page(self, self.ui.load_pages.page_1)
+            # Load Page Home
+            MainFunctions.set_page(self, self.ui.load_pages.home)
+            
 
         # WIDGETS BTN
         if btn.objectName() == "btn_widgets":
@@ -93,7 +94,7 @@ class MainWindow(QMainWindow):
             self.ui.left_menu.select_only_one(btn.objectName())
 
             # Load Page 2
-            MainFunctions.set_page(self, self.ui.load_pages.page_2)
+            MainFunctions.set_page(self, self.ui.load_pages.page_1)
 
         # LOAD USER PAGE
         if btn.objectName() == "btn_add_user":
@@ -137,8 +138,8 @@ class MainWindow(QMainWindow):
         password = self.ui.load_pages.login_ui.editPassword.text()
         # Kiểm tra tài khoản (ví dụ: admin/admin)
         if username == "admin" and password == "admin":
-            # Chuyển sang page_1
-            MainFunctions.set_page(self, self.ui.load_pages.page_1)
+            # Chuyển sang home
+            MainFunctions.set_page(self, self.ui.load_pages.home)
             # Hiện left menu
             self.ui.left_menu.setVisible(True)
             self.ui.left_menu_frame.setVisible(True)

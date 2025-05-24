@@ -35,9 +35,6 @@ class Ui_MainPages(object):
 
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(2)
-
-
         QMetaObject.connectSlotsByName(MainPages)
     # setupUi
 

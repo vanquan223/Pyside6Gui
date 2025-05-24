@@ -19,12 +19,12 @@ from PySide6.QtWidgets import (QApplication, QLabel, QSizePolicy, QVBoxLayout,
     QWidget)
 
 class Ui_Page3(object):
-    def setupUi(self, page_1):
-        if not page_1.objectName():
-            page_1.setObjectName(u"page_1")
-        self.page_3_layout = QVBoxLayout(page_1)
+    def setupUi(self, page_3):
+        if not page_3.objectName():
+            page_3.setObjectName(u"page_3")
+        self.page_3_layout = QVBoxLayout(page_3)
         self.page_3_layout.setObjectName(u"page_3_layout")
-        self.empty_page_label = QLabel(page_1)
+        self.empty_page_label = QLabel(page_3)
         self.empty_page_label.setObjectName(u"empty_page_label")
         font = QFont()
         font.setPointSize(16)
@@ -34,12 +34,12 @@ class Ui_Page3(object):
         self.page_3_layout.addWidget(self.empty_page_label)
 
 
-        self.retranslateUi(page_1)
+        self.retranslateUi(page_3)
 
-        QMetaObject.connectSlotsByName(page_1)
+        QMetaObject.connectSlotsByName(page_3)
     # setupUi
 
-    def retranslateUi(self, page_1):
+    def retranslateUi(self, page_3):
         self.empty_page_label.setText(QCoreApplication.translate("Page3", u"Empty Page 3", None))
         pass
     # retranslateUi

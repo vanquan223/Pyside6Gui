@@ -19,7 +19,7 @@
 from qt_core import *
 from gui.uis.pages.login_page_ui import Ui_LoginPage
 from gui.uis.pages.page_1_ui import Ui_Page1
-from gui.uis.pages.page_2_ui import Ui_Page2
+from gui.uis.pages.home_ui import Ui_home
 from gui.uis.pages.page_3_ui import Ui_Page3
 
 class Ui_MainPages(object):
@@ -38,16 +38,16 @@ class Ui_MainPages(object):
         self.page_login = QWidget()
         self.login_ui = Ui_LoginPage()
         self.login_ui.setupUi(self.page_login)
+        
+        # Page Home
+        self.home = QWidget()
+        self.home_ui = Ui_home()
+        self.home_ui.setupUi(self.home)
 
         # Page 1
         self.page_1 = QWidget()
         self.page1_ui = Ui_Page1()
         self.page1_ui.setupUi(self.page_1)
-
-        # Page 2
-        self.page_2 = QWidget()
-        self.page2_ui = Ui_Page2()
-        self.page2_ui.setupUi(self.page_2)
 
         # Page 3
         self.page_3 = QWidget()
@@ -55,8 +55,8 @@ class Ui_MainPages(object):
         self.page3_ui.setupUi(self.page_3)
 
         self.pages.addWidget(self.page_login)
+        self.pages.addWidget(self.home)
         self.pages.addWidget(self.page_1)
-        self.pages.addWidget(self.page_2)
         self.pages.addWidget(self.page_3)
 
         self.main_pages_layout.addWidget(self.pages)
@@ -64,7 +64,7 @@ class Ui_MainPages(object):
 
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(2)
+        self.pages.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainPages)
