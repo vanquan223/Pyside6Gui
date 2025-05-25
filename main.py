@@ -6,6 +6,7 @@ from gui.core.json_settings import Settings
 from gui.uis.pages.home_ui import Ui_home
 from gui.uis.pages.page_1_ui import Ui_Page1
 from gui.uis.pages.page_3_ui import Ui_Page3
+from gui.uis.windows.home.load_home import LoadHome
 from gui.uis.windows.main import *
 from gui.uis.windows.main.functions_main_window import *
 from gui.uis.windows.page1.load_page1 import LoadPage1
@@ -70,6 +71,7 @@ class MainWindow(QMainWindow):
         self.ui.load_pages.home_ui.setupUi(self.ui.load_pages.home)
         self.ui.load_pages.pages.addWidget(self.ui.load_pages.home)
         MainFunctions.set_page(self, self.ui.load_pages.home)
+        LoadHome(self.ui)
 
     def handle_widgets_btn(self):
         self.ui.left_menu.select_only_one("btn_widgets")
@@ -121,8 +123,9 @@ class MainWindow(QMainWindow):
             self.ui.load_pages.home_ui = Ui_home()
             self.ui.load_pages.home_ui.setupUi(self.ui.load_pages.home)
             self.ui.load_pages.pages.addWidget(self.ui.load_pages.home)
-            
             MainFunctions.set_page(self, self.ui.load_pages.home)
+            LoadHome(self.ui)
+            
             # Hiện left menu
             self.ui.left_menu_frame.setVisible(True)
         else:

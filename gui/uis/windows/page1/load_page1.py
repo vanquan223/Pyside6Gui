@@ -269,25 +269,3 @@ class LoadPage1:
         self.ui.load_pages.page1_ui.row_4_layout.addWidget(self.line_edit)
         self.ui.load_pages.page1_ui.row_5_layout.addWidget(self.table_widget)
 
-    def clear_widgets(self):
-        # Clear all widgets in page 1
-        for i in reversed(range(self.ui.load_pages.page1_ui.row_1_layout.count())):
-            widget = self.ui.load_pages.page1_ui.row_1_layout.itemAt(i).widget()
-            if widget is not None:
-                widget.deleteLater()
-        for i in reversed(range(self.ui.load_pages.page1_ui.row_2_layout.count())):
-            widget = self.ui.load_pages.page1_ui.row_2_layout.itemAt(i).widget()
-            if widget is not None:
-                widget.deleteLater()
-        for i in reversed(range(self.ui.load_pages.page1_ui.row_3_layout.count())):
-            widget = self.ui.load_pages.page1_ui.row_3_layout.itemAt(i).widget()
-            if widget is not None:
-                widget.deleteLater()
-        for i in reversed(range(self.ui.load_pages.page1_ui.row_4_layout.count())):
-            widget = self.ui.load_pages.page1_ui.row_4_layout.itemAt(i).widget()
-            if widget is not None:
-                widget.deleteLater()
-        for i in reversed(range(self.ui.load_pages.page1_ui.row_5_layout.count())):
-            widget = self.ui.load_pages.page1_ui.row_5_layout.itemAt(i).widget()
-            if widget is not None:
-                widget.deleteLater()
