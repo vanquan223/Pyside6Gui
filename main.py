@@ -1,49 +1,22 @@
-# ///////////////////////////////////////////////////////////////
-#
-# BY: WANDERSON M.PIMENTA
-# PROJECT MADE WITH: Qt Designer and PySide6
-# V: 1.0.0
-#
-# This project can be used freely for all uses, as long as they maintain the
-# respective credits only in the Python scripts, any information in the visual
-# interface (GUI) can be modified without any implication.
-#
-# There are limitations on Qt licenses if you want to use your products
-# commercially, I recommend reading them on the official website:
-# https://doc.qt.io/qtforpython/licenses.html
-#
-# ///////////////////////////////////////////////////////////////
-
-# IMPORT PACKAGES AND MODULES
-# ///////////////////////////////////////////////////////////////
-from gui.uis.windows.main_window.functions_main_window import *
-import sys
+# -*- coding: utf-8 -*-
 import os
+import sys
 
-# IMPORT QT CORE
-# ///////////////////////////////////////////////////////////////
-from qt_core import *
-
-# IMPORT SETTINGS
-# ///////////////////////////////////////////////////////////////
 from gui.core.json_settings import Settings
-
-# IMPORT PY ONE DARK WINDOWS
-# ///////////////////////////////////////////////////////////////
-# MAIN WINDOW
-from gui.uis.windows.main_window import *
-
-# IMPORT PY ONE DARK WIDGETS
-# ///////////////////////////////////////////////////////////////
+from gui.uis.pages.home_ui import Ui_home
+from gui.uis.pages.page_1_ui import Ui_Page1
+from gui.uis.pages.page_3_ui import Ui_Page3
+from gui.uis.windows.main import *
+from gui.uis.windows.main.functions_main_window import *
+from gui.uis.windows.page1.setup_page1 import SetupPage1
 from gui.widgets import *
+from qt_core import *
 
 # ADJUST QT FONT DPI FOR HIGHT SCALE AN 4K MONITOR
 # ///////////////////////////////////////////////////////////////
 os.environ["QT_FONT_DPI"] = "96"
 # IF IS 4K MONITOR ENABLE 'os.environ["QT_SCALE_FACTOR"] = "2"'
 
-# MAIN WINDOW
-# ///////////////////////////////////////////////////////////////
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -81,27 +54,36 @@ class MainWindow(QMainWindow):
         
         # HOME BTN
         if btn.objectName() == "btn_home":
-            # Select Menu
             self.ui.left_menu.select_only_one(btn.objectName())
-
-            # Load Page Home
+            
+            self.ui.load_pages.home = QWidget()
+            self.ui.load_pages.home_ui = Ui_home()
+            self.ui.load_pages.home_ui.setupUi(self.ui.load_pages.home)
+            self.ui.load_pages.pages.addWidget(self.ui.load_pages.home)
             MainFunctions.set_page(self, self.ui.load_pages.home)
             
-
-        # WIDGETS BTN
+            # MainFunctions.set_page(self, self.ui.load_pages.home)
+        
+        # Home BTN
         if btn.objectName() == "btn_widgets":
-            # Select Menu
             self.ui.left_menu.select_only_one(btn.objectName())
-
-            # Load Page 2
+            
+            self.ui.load_pages.page_1 = QWidget()
+            self.ui.load_pages.page1_ui = Ui_Page1()
+            self.ui.load_pages.page1_ui.setupUi(self.ui.load_pages.page_1)
+            self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_1)
             MainFunctions.set_page(self, self.ui.load_pages.page_1)
+            
+            SetupPage1(self.ui)
 
         # LOAD USER PAGE
         if btn.objectName() == "btn_add_user":
-            # Select Menu
             self.ui.left_menu.select_only_one(btn.objectName())
-
-            # Load Page 3 
+            
+            self.ui.load_pages.page_3 = QWidget()
+            self.ui.load_pages.page3_ui = Ui_Page3()
+            self.ui.load_pages.page3_ui.setupUi(self.ui.load_pages.page_3)
+            self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_3)
             MainFunctions.set_page(self, self.ui.load_pages.page_3)
         
         # TITLE BAR MENU
@@ -137,11 +119,15 @@ class MainWindow(QMainWindow):
         username = self.ui.load_pages.login_ui.editUsername.text()
         password = self.ui.load_pages.login_ui.editPassword.text()
         # Kiểm tra tài khoản (ví dụ: admin/admin)
-        if username == "admin" and password == "admin":
+        if username == "" and password == "":
             # Chuyển sang home
+            self.ui.load_pages.home = QWidget()
+            self.ui.load_pages.home_ui = Ui_home()
+            self.ui.load_pages.home_ui.setupUi(self.ui.load_pages.home)
+            self.ui.load_pages.pages.addWidget(self.ui.load_pages.home)
+            
             MainFunctions.set_page(self, self.ui.load_pages.home)
             # Hiện left menu
-            self.ui.left_menu.setVisible(True)
             self.ui.left_menu_frame.setVisible(True)
         else:
             QMessageBox.warning(self, "Lỗi", "Sai tên đăng nhập hoặc mật khẩu!")

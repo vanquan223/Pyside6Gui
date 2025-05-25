@@ -39,6 +39,7 @@ class MainFunctions():
     # SET MAIN WINDOW PAGES
     # ///////////////////////////////////////////////////////////////
     def set_page(self, page):
+        
         self.ui.load_pages.pages.setCurrentWidget(page)
 
     # GET TITLE BUTTON BY OBJECT NAME

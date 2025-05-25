@@ -1,26 +1,7 @@
-# ///////////////////////////////////////////////////////////////
-#
-# BY: WANDERSON M.PIMENTA
-# PROJECT MADE WITH: Qt Designer and PySide6
-# V: 1.0.0
-#
-# This project can be used freely for all uses, as long as they maintain the
-# respective credits only in the Python scripts, any information in the visual
-# interface (GUI) can be modified without any implication.
-#
-# There are limitations on Qt licenses if you want to use your products
-# commercially, I recommend reading them on the official website:
-# https://doc.qt.io/qtforpython/licenses.html
-#
-# ///////////////////////////////////////////////////////////////
-
-# IMPORT QT CORE
-# ///////////////////////////////////////////////////////////////
-from qt_core import *
+# -*- coding: utf-8 -*-
 from gui.uis.pages.login_page_ui import Ui_LoginPage
-from gui.uis.pages.page_1_ui import Ui_Page1
-from gui.uis.pages.home_ui import Ui_home
-from gui.uis.pages.page_3_ui import Ui_Page3
+from qt_core import *
+
 
 class Ui_MainPages(object):
     def setupUi(self, MainPages):
@@ -38,34 +19,9 @@ class Ui_MainPages(object):
         self.page_login = QWidget()
         self.login_ui = Ui_LoginPage()
         self.login_ui.setupUi(self.page_login)
-        
-        # Page Home
-        self.home = QWidget()
-        self.home_ui = Ui_home()
-        self.home_ui.setupUi(self.home)
-
-        # Page 1
-        self.page_1 = QWidget()
-        self.page1_ui = Ui_Page1()
-        self.page1_ui.setupUi(self.page_1)
-
-        # Page 3
-        self.page_3 = QWidget()
-        self.page3_ui = Ui_Page3()
-        self.page3_ui.setupUi(self.page_3)
-
         self.pages.addWidget(self.page_login)
-        self.pages.addWidget(self.home)
-        self.pages.addWidget(self.page_1)
-        self.pages.addWidget(self.page_3)
-
+        
         self.main_pages_layout.addWidget(self.pages)
-
-
-        self.retranslateUi(MainPages)
-
-        self.pages.setCurrentIndex(1)
-
 
         QMetaObject.connectSlotsByName(MainPages)
     # setupUi
