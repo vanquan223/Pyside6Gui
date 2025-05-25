@@ -8,7 +8,7 @@ from gui.uis.pages.page_1_ui import Ui_Page1
 from gui.uis.pages.page_3_ui import Ui_Page3
 from gui.uis.windows.main import *
 from gui.uis.windows.main.functions_main_window import *
-from gui.uis.windows.page1.setup_page1 import SetupPage1
+from gui.uis.windows.page1.load_page1 import LoadPage1
 from gui.widgets import *
 from qt_core import *
 
@@ -46,51 +46,47 @@ class MainWindow(QMainWindow):
     # Check funtion by object name / btn_id
     # ///////////////////////////////////////////////////////////////
     def btn_clicked(self):
-        # GET BT CLICKED
         btn = SetupMainWindow.setup_btns(self)
+        btn_name = btn.objectName()
 
-        # LEFT MENU
-        # ///////////////////////////////////////////////////////////////
-        
-        # HOME BTN
-        if btn.objectName() == "btn_home":
-            self.ui.left_menu.select_only_one(btn.objectName())
-            
-            self.ui.load_pages.home = QWidget()
-            self.ui.load_pages.home_ui = Ui_home()
-            self.ui.load_pages.home_ui.setupUi(self.ui.load_pages.home)
-            self.ui.load_pages.pages.addWidget(self.ui.load_pages.home)
-            MainFunctions.set_page(self, self.ui.load_pages.home)
-            
-            # MainFunctions.set_page(self, self.ui.load_pages.home)
-        
-        # Home BTN
-        if btn.objectName() == "btn_widgets":
-            self.ui.left_menu.select_only_one(btn.objectName())
-            
-            self.ui.load_pages.page_1 = QWidget()
-            self.ui.load_pages.page1_ui = Ui_Page1()
-            self.ui.load_pages.page1_ui.setupUi(self.ui.load_pages.page_1)
-            self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_1)
-            MainFunctions.set_page(self, self.ui.load_pages.page_1)
-            
-            SetupPage1(self.ui)
+        handlers = {
+            "btn_home": self.handle_home_btn,
+            "btn_widgets": self.handle_widgets_btn,
+            "btn_add_user": self.handle_add_user_btn,
+        }
 
-        # LOAD USER PAGE
-        if btn.objectName() == "btn_add_user":
-            self.ui.left_menu.select_only_one(btn.objectName())
-            
-            self.ui.load_pages.page_3 = QWidget()
-            self.ui.load_pages.page3_ui = Ui_Page3()
-            self.ui.load_pages.page3_ui.setupUi(self.ui.load_pages.page_3)
-            self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_3)
-            MainFunctions.set_page(self, self.ui.load_pages.page_3)
-        
-        # TITLE BAR MENU
-        # ///////////////////////////////////////////////////////////////          
+        handler = handlers.get(btn_name)
+        if handler:
+            handler()
+        else:
+            print(f"No handler for button: {btn_name}")
 
-        # DEBUG
-        print(f"Button {btn.objectName()}, clicked!")
+        print(f"Button {btn_name}, clicked!")
+
+    def handle_home_btn(self):
+        self.ui.left_menu.select_only_one("btn_home")
+        self.ui.load_pages.home = QWidget()
+        self.ui.load_pages.home_ui = Ui_home()
+        self.ui.load_pages.home_ui.setupUi(self.ui.load_pages.home)
+        self.ui.load_pages.pages.addWidget(self.ui.load_pages.home)
+        MainFunctions.set_page(self, self.ui.load_pages.home)
+
+    def handle_widgets_btn(self):
+        self.ui.left_menu.select_only_one("btn_widgets")
+        self.ui.load_pages.page_1 = QWidget()
+        self.ui.load_pages.page1_ui = Ui_Page1()
+        self.ui.load_pages.page1_ui.setupUi(self.ui.load_pages.page_1)
+        self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_1)
+        MainFunctions.set_page(self, self.ui.load_pages.page_1)
+        LoadPage1(self.ui)
+
+    def handle_add_user_btn(self):
+        self.ui.left_menu.select_only_one("btn_add_user")
+        self.ui.load_pages.page_3 = QWidget()
+        self.ui.load_pages.page3_ui = Ui_Page3()
+        self.ui.load_pages.page3_ui.setupUi(self.ui.load_pages.page_3)
+        self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_3)
+        MainFunctions.set_page(self, self.ui.load_pages.page_3)
 
     # LEFT MENU BTN IS RELEASED
     # Run function when btn is released

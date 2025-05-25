@@ -1,11 +1,10 @@
 from gui.core.functions import Functions
 from gui.core.json_themes import Themes
-from gui.uis.pages.page_1_ui import Ui_Page1
 from gui.widgets import *
 from qt_core import *
 
 
-class SetupPage1:
+class LoadPage1:
     def __init__(self, ui):
         self.ui = ui
         themes = Themes()
