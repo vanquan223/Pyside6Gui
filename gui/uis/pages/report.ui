@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>report</class>
+ <widget class="QWidget" name="report">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="home_layout">
+   <item>
+    <layout class="QHBoxLayout" name="reportLayout">
+     <item>
+      <layout class="QVBoxLayout" name="editReportLayout">
+       <item>
+        <widget class="QLabel" name="labelReport">
+         <property name="text">
+          <string>Báo lỗi</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="labelAddReport">
+             <property name="text">
+              <string>Gửi báo lỗi để được hỗ trợ</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="addReportButton">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset theme="QIcon::ThemeIcon::ListAdd"/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelIdReport">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="levelReport"/>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="procedureCode"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="titleReport">
+         <property name="placeholderText">
+          <string>Nhập tiêu đề ngắn gọn báo lỗi</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="descReport">
+         <property name="placeholderText">
+          <string>Nhập chi tiết báo lỗi</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="addImageReport">
+         <property name="placeholderText">
+          <string>Chọn ảnh chụp màn hình lỗi vào đây</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listImageReport"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Gửi</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="listReportLayout">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Lịch sử báo lỗi</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Các báo lỗi gần đây và trạng thái xử lý</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="searchReportButton">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="QIcon::ThemeIcon::EditFind"/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListView" name="listReport"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -5,7 +5,8 @@ import sys
 from gui.core.json_settings import Settings
 from gui.uis.pages.home_ui import Ui_home
 from gui.uis.pages.page_1_ui import Ui_Page1
-from gui.uis.pages.page_3_ui import Ui_Page3
+from gui.uis.pages.report_ui import Ui_report
+
 from gui.uis.windows.home.load_home import LoadHome
 from gui.uis.windows.main import *
 from gui.uis.windows.main.functions_main_window import *
@@ -84,11 +85,12 @@ class MainWindow(QMainWindow):
 
     def handle_add_user_btn(self):
         self.ui.left_menu.select_only_one("btn_add_user")
-        self.ui.load_pages.page_3 = QWidget()
-        self.ui.load_pages.page3_ui = Ui_Page3()
-        self.ui.load_pages.page3_ui.setupUi(self.ui.load_pages.page_3)
-        self.ui.load_pages.pages.addWidget(self.ui.load_pages.page_3)
-        MainFunctions.set_page(self, self.ui.load_pages.page_3)
+        self.ui.load_pages.report = QWidget()
+        self.ui.load_pages.report_ui = Ui_report()
+        self.ui.load_pages.report_ui.setupUi(self.ui.load_pages.report)
+        self.ui.load_pages.pages.addWidget(self.ui.load_pages.report)
+        MainFunctions.set_page(self, self.ui.load_pages.report)
+        LoadReport(self.ui)
 
     # LEFT MENU BTN IS RELEASED
     # Run function when btn is released
